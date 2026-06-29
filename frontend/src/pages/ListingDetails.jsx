@@ -57,17 +57,28 @@ const [reviews, setReviews] = useState(
       ).toFixed(1)
     : "No ratings";
 
-  const handleBooking = () => {
-    const newBooking = {
-      id: Date.now(),
-      title: house.title,
-      image: house.image,
-      location: house.location,
-      checkIn,
-      checkOut,
-      total,
-    };
-    const handleReview = () => {
+const handleBooking = () => {
+  const newBooking = {
+    id: Date.now(),
+    title: house.title,
+    image: house.image,
+    location: house.location,
+    checkIn,
+    checkOut,
+    total,
+  };
+
+  const old =
+    JSON.parse(localStorage.getItem("bookings")) || [];
+
+  localStorage.setItem(
+    "bookings",
+    JSON.stringify([...old, newBooking])
+  );
+
+  setShowPopup(true);
+};
+const handleReview = () => {
   if (!comment.trim()) return;
 
   const newReview = {
@@ -76,10 +87,7 @@ const [reviews, setReviews] = useState(
     comment,
   };
 
-  const updatedReviews = [
-    ...reviews,
-    newReview,
-  ];
+  const updatedReviews = [...reviews, newReview];
 
   setReviews(updatedReviews);
 
@@ -91,17 +99,6 @@ const [reviews, setReviews] = useState(
   setComment("");
   setRating(5);
 };
-
-    const old =
-      JSON.parse(localStorage.getItem("bookings")) || [];
-
-    localStorage.setItem(
-      "bookings",
-      JSON.stringify([...old, newBooking])
-    );
-
-    setShowPopup(true);
-  };
 
   return (
     <>
