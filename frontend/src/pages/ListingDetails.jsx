@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import listings from "../data/Listings";
 import Nav from "../Component/Nav";
 import ListingMap from "../Component/ListingMap";
@@ -18,12 +18,17 @@ function ListingDetails() {
   const [rating, setRating] = useState(5);
 const [comment, setComment] = useState("");
 
-const [reviews, setReviews] = useState(
-  JSON.parse(
-    localStorage.getItem(`reviews-${house.id}`)
-  ) || []
-);
+const [reviews, setReviews] = useState([]);
+useEffect(() => {
+  if (!house) return;
 
+  const saved =
+    JSON.parse(
+      localStorage.getItem(`reviews-${house.id}`)
+    ) || [];
+
+  setReviews(saved);
+}, [house]);
   if (!house) {
     return (
       <>
