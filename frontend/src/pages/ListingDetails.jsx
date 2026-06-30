@@ -133,7 +133,6 @@ const handleReview = () => {
           ₹{house.price.toLocaleString()} / night
         </p>
 
-        {/* MAP */}
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4">
             Location
@@ -146,7 +145,6 @@ const handleReview = () => {
           />
         </div>
 
-        {/* BOOKING CARD */}
         <div className="mt-8 border rounded-3xl p-6 shadow-md max-w-md">
           <h2 className="text-xl font-semibold mb-5">
             Book your stay
