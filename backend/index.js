@@ -19,11 +19,15 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://airbnb-us8j.vercel.app/",
+      "https://airbnb-us8j.vercel.app",
     ],
     credentials: true,
   })
 );
+
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 app.use("/api/auth", authRouter);
 
