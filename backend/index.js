@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://airbnb-us8j.vercel.app",
+       "https://airbnb-vlbv.vercel.app",
     ],
     credentials: true,
   })
