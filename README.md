@@ -4,7 +4,7 @@ A full-stack Airbnb-inspired web application built using the MERN stack. Users c
 
 ## 🚀 Live Demo
 
-- **Frontend:** https://airbnb-us8j.vercel.app
+- **Frontend:** [https://airbnb-us8j.vercel.app](https://airbnb-vlbv.vercel.app/)
 - **Backend API:** https://airbnb-1-s2he.onrender.com
 
 ---
